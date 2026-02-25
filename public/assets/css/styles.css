@@ -912,7 +912,7 @@ body {
     width: 100%;
     max-height: 340px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 75%;
     border-radius: 16px;
     margin-bottom: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
