@@ -1,0 +1,13 @@
+# Astro
+node_modules/
+dist/
+.astro/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+bak_old_system/
