@@ -1,195 +1,231 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import PostPreview from '../components/PostPreview.astro';
+import OldSystemLayout from '../layouts/OldSystemLayout.astro';
+import OldPostCard from '../components/OldPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
 const lastPosts = posts
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
+
+const title = "Ps. Jimmi Ames - Psicología Clínica y Formación Especializada";
 ---
 
-<BaseLayout title="Inicio">
-	<Header />
-	
-	<main>
-		<!-- Hero Section -->
-		<section class="hero">
-			<div class="hero-content">
-				<h1>Transforma tu vida desde la <span>psicología contextual</span></h1>
-				<p>Acompañamiento especializado basado en evidencia para ayudarte a construir una vida con sentido.</p>
-				<div class="actions">
-					<a href="/blog" class="btn btn-primary">Leer el Blog</a>
-					<a href="#contacto" class="btn btn-outline">Contacto</a>
-				</div>
-			</div>
-		</section>
+<OldSystemLayout title={title}>
+    <header id="main-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/CONTEXTUAL-LOGO19.png?v=2" alt="Contextual Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
 
-		<!-- Features Section -->
-		<section class="features">
-			<div class="container">
-				<h2>Nuestra Propuesta</h2>
-				<div class="grid">
-					<div class="feature-item">
-						<div class="icon">ACT</div>
-						<h3>Terapia de Aceptación</h3>
-						<p>Fomentamos la flexibilidad psicológica ante el sufrimiento humano.</p>
-					</div>
-					<div class="feature-item">
-						<div class="icon">MF</div>
-						<h3>Mindfulness</h3>
-						<p>Atención plena para reconectar con el momento presente.</p>
-					</div>
-					<div class="feature-item">
-						<div class="icon">EF</div>
-						<h3>Basado en Evidencia</h3>
-						<p>Tratamientos validados por la comunidad científica internacional.</p>
-					</div>
-				</div>
-			</div>
-		</section>
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+                <h1>Tu viaje hacia el bienestar <span class="gradient-text">comienza aquí</span></h1>
+                <p>Psicoterapia y Supervisión Clínica desde el Enfoque Contextual. Herramientas basadas en evidencia
+                    para una vida plena.</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn-primary">Mis Servicios</a>
+                    <a href="https://wa.me/51994656656" target="_blank" class="btn-secondary">Agendar Cita</a>
+                </div>
+            </div>
+        </section>
 
-		<!-- Blog Preview Section -->
-		<section class="latest-blog">
-			<div class="container">
-				<div class="section-header">
-					<h2>Últimos Artículos</h2>
-					<a href="/blog">Ver todos</a>
-				</div>
-				<div class="blog-grid">
-					{lastPosts.map((post) => (
-						<PostPreview post={post} />
-					))}
-				</div>
-			</div>
-		</section>
-	</main>
+        <!-- Services Section -->
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2 class="section-title">Servicios Especializados</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i data-lucide="brain-circuit" class="service-icon"></i>
+                        <h3>Psicoterapia Individual</h3>
+                        <p>Acompañamiento especializado para adolescentes, jóvenes y adultos. Desde el enfoque
+                            contextual, te ayudo a gestionar tus emociones y construir una vida con sentido.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-lucide="users" class="service-icon"></i>
+                        <h3>Talleres Especializados</h3>
+                        <p>Espacios grupales para el crecimiento personal y profesional, enfocados en habilidades de
+                            regulación emocional y bienestar basado en evidencia científica.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-lucide="file-search" class="service-icon"></i>
+                        <h3>Evaluación Psicológica</h3>
+                        <p>Procesos diagnósticos integrales para adolescentes y adultos, brindando claridad sobre tu
+                            situación y trazando una ruta clara de intervención.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-lucide="clipboard-list" class="service-icon"></i>
+                        <h3>Informes Psicológicos</h3>
+                        <p>Elaboración de documentos profesionales y legales tras un proceso evaluativo riguroso,
+                            garantizando máxima ética y precisión técnica.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-lucide="mic" class="service-icon"></i>
+                        <h3>Charlas y Conferencias</h3>
+                        <p>Ponencias dinámicas para instituciones y empresas sobre salud mental, manejo del estrés y
+                            herramientas de terapias de tercera generación.</p>
+                    </div>
+                    <div class="service-card">
+                        <i data-lucide="graduation-cap" class="service-icon"></i>
+                        <h3>Supervisión Clínica</h3>
+                        <p>Mentoría y consultoría para colegas psicólogos. Fortalece tu práctica clínica bajo los
+                            modelos ACT, FAP y DBT.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-	<Footer />
-</BaseLayout>
+        <!-- About Section -->
+        <section id="sobre-mi" class="section-professional bg-light">
+            <div class="container about-grid">
+                <div class="about-text">
+                    <h2 class="section-title"
+                        style="text-align: left; background: none; -webkit-text-fill-color: initial; color: #8F99C9; margin-bottom: 0.5rem;">
+                        Sobre Mí</h2>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Ps. Jimmi Ames Arenas</h3>
+                    <p class="subtitle" style="margin-bottom: 1.5rem;">Especialista en Psicología Clínica y Master en
+                        Terapias Contextuales <strong>(C.Ps.P. 41791)</strong></p>
+
+                    <p class="about-bio">Acompaño a adolescentes, jóvenes y adultos en procesos de cambio basados en
+                        evidencia científica. Mi práctica se fundamenta en las Terapias Contextuales, habiéndome formado
+                        directamente con los mejores representantes y referentes internacionales de este modelo. Mi
+                        objetivo es brindarte herramientas técnicas y humanas para gestionar tus emociones de forma
+                        efectiva, permitiéndote construir una vida con sentido y propósito.</p>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i data-lucide="graduation-cap"></i>
+                            <p><strong>Máster en Terapias Contextuales:</strong> Universidad de Almería, España.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="award"></i>
+                            <p><strong>Especialista Clínico:</strong> Segunda Especialidad en Psicología Clínica (UCSP).
+                            </p>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="globe"></i>
+                            <p><strong>Formación Internacional ACT/DBT:</strong> Con expertos de clase mundial.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <i data-lucide="briefcase"></i>
+                            <p><strong>Experiencia Comprobada:</strong> Trayectoria en clínica privada y pública.</p>
+                        </div>
+                    </div>
+
+                    <p class="closing-phrase">"Mi compromiso es brindarte un espacio seguro y profesional, respaldado
+                        por una formación académica rigurosa."</p>
+                </div>
+                <div class="about-image">
+                    <img src="/foto-jimmi.jpg" alt="Ps. Jimmi Ames Arenas" class="profile-photo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section Preview -->
+        <section id="blog" class="section">
+            <div class="container">
+                <h2 class="section-title">Artículos y Bienestar</h2>
+                <div class="blog-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+                    {lastPosts.map((post) => (
+                        <OldPostCard post={post} />
+                    ))}
+                </div>
+                <!-- View All Button -->
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="/blog/" class="btn-secondary">Ver todos los artículos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Contact Section -->
+        <section id="contacto" class="section">
+            <div class="container contact-container" style="max-width: 1200px;">
+                <h2 class="section-title"
+                    style="text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem;">Contáctame</h2>
+
+                <!-- 4-Column Info Grid -->
+                <div class="contact-info">
+                    <div class="contact-column">
+                        <i data-lucide="map-pin"
+                            style="color: #2DA9AF; width: 28px; height: 28px; margin-bottom: 0.75rem;"></i>
+                        <h4>Ubicación</h4>
+                        <p style="font-size: 0.9rem;">Calle Cortaderas 105, Yanahuara</p>
+                    </div>
+                    <div class="contact-column">
+                        <i data-lucide="phone"
+                            style="color: #2DA9AF; width: 28px; height: 28px; margin-bottom: 0.75rem;"></i>
+                        <h4>WhatsApp</h4>
+                        <p style="font-size: 0.9rem;"><a href="https://wa.me/51994656656" target="_blank">+51 994 656
+                                656</a></p>
+                    </div>
+                    <div class="contact-column">
+                        <i data-lucide="mail"
+                            style="color: #2DA9AF; width: 28px; height: 28px; margin-bottom: 0.75rem;"></i>
+                        <h4>Email</h4>
+                        <p style="font-size: 0.9rem;"><a
+                                href="mailto:ps.jimmiamesarenas@gmail.com">ps.jimmiamesarenas@gmail.com</a></p>
+                    </div>
+                    <div class="contact-column">
+                        <i data-lucide="share-2"
+                            style="color: #2DA9AF; width: 28px; height: 28px; margin-bottom: 0.75rem;"></i>
+                        <h4>Redes Sociales</h4>
+                        <div class="social-icons-wrapper">
+                            <a href="https://linktr.ee/ps.contextual" target="_blank" aria-label="Instagram"><i
+                                    data-lucide="instagram"></i></a>
+                            <a href="https://linktr.ee/ps.contextual" target="_blank" aria-label="Facebook"><i
+                                    data-lucide="facebook"></i></a>
+                            <a href="https://linktr.ee/ps.contextual" target="_blank" aria-label="TikTok"><i
+                                    data-lucide="music-2"></i></a>
+                            <a href="https://linktr.ee/ps.contextual" target="_blank" aria-label="LinkedIn"><i
+                                    data-lucide="linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Iframe -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1609.3320331690738!2d-71.54028232607865!3d-16.3913645508483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424bff16e5bc89%3A0xe73847ef6100d868!2sPsic%C3%B3logo%20Jimmi%20Ames%20Arenas%20-%20Contextual!5e0!3m2!1ses!2spe!4v1771304861189!5m2!1ses!2spe"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>Ps. Jimmi Jason Ames Arenas | R.U.C. 10459004420</p>
+            <p class="copyright">&copy; 2026 Contextual. Psicoterapia y Formación. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/51994656656" class="floating-whatsapp" target="_blank" aria-label="Chat en WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+</OldSystemLayout>
 
 <style>
-	.hero {
-		background: linear-gradient(135deg, #f0f4f8 0%, #e1e9f1 100%);
-		padding: 8rem 2rem;
-		text-align: center;
-	}
-	.hero-content {
-		max-width: 800px;
-		margin: 0 auto;
-	}
-	h1 {
-		font-size: 3.5rem;
-		margin-bottom: 1.5rem;
-	}
-	h1 span {
-		color: var(--color-primary);
-	}
-	.hero p {
-		font-size: 1.25rem;
-		margin-bottom: 2.5rem;
-		color: #555;
-	}
-	.actions {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-	}
-	.btn {
-		padding: 0.8rem 2rem;
-		border-radius: 50px;
-		font-weight: 600;
-		transition: all 0.3s;
-	}
-	.btn-primary {
-		background: var(--color-primary);
-		color: white;
-	}
-	.btn-primary:hover {
-		box-shadow: 0 10px 20px rgba(45, 169, 175, 0.3);
-		transform: translateY(-2px);
-	}
-	.btn-outline {
-		border: 2px solid var(--color-primary);
-		color: var(--color-primary);
-	}
-	.btn-outline:hover {
-		background: var(--color-primary);
-		color: white;
-	}
-
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 2rem;
-	}
-
-	.features {
-		padding: 6rem 0;
-		background: white;
-	}
-	.features h2 {
-		text-align: center;
-		margin-bottom: 4rem;
-		font-size: 2.5rem;
-	}
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 3rem;
-	}
-	.feature-item {
-		text-align: center;
-		padding: 2rem;
-		border-radius: 20px;
-		background: #fdfdfd;
-		border: 1px solid #eee;
-	}
-	.icon {
-		width: 60px;
-		height: 60px;
-		background: var(--color-secondary);
-		color: white;
-		border-radius: 12px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin: 0 auto 1.5rem;
-		font-weight: 700;
-	}
-
-	.latest-blog {
-		padding: 6rem 0;
-	}
-	.section-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-end;
-		margin-bottom: 3rem;
-	}
-	.section-header h2 {
-		font-size: 2.5rem;
-	}
-	.section-header a {
-		color: var(--color-primary);
-		font-weight: 600;
-		border-bottom: 2px solid transparent;
-		transition: border 0.3s;
-	}
-	.section-header a:hover {
-		border-bottom-color: var(--color-primary);
-	}
-	.blog-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	@media (max-width: 768px) {
-		h1 {
-			font-size: 2.5rem;
-		}
-	}
+    /* Ensure styles from index.html that were inline or specific are kept if not in styles.css */
+    /* Many styles were actually inline in the original HTML, I'll keep them as is. */
+    .section {
+        padding: 60px 0;
+    }
 </style>

@@ -1,67 +1,70 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PostPreview from '../../components/PostPreview.astro';
+import OldSystemLayout from '../../layouts/OldSystemLayout.astro';
+import OldPostCard from '../../components/OldPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const title = "Blog - Ps. Jimmi Ames";
 ---
 
-<BaseLayout title="Blog">
-	<Header />
-	
-	<main>
-		<section class="blog-hero">
-			<div class="container">
-				<h1>Nuestro Blog</h1>
-				<p>Explora artículos sobre psicología, bienestar y ciencias del comportamiento.</p>
-			</div>
-		</section>
+<OldSystemLayout title={title}>
+    <header id="main-header">
+        <nav class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/CONTEXTUAL-LOGO19.png?v=2" alt="Contextual Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
 
-		<section class="posts-list">
-			<div class="container">
-				<div class="blog-grid">
-					{posts.map((post) => (
-						<PostPreview post={post} />
-					))}
-				</div>
-			</div>
-		</section>
-	</main>
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Espacio Contextual</h1>
+                <p class="subtitle text-center">Reflexiones, artículos y novedades</p>
 
-	<Footer />
-</BaseLayout>
+                <div id="blog-posts-container" class="blog-grid">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <OldPostCard post={post} />
+                        ))
+                    ) : (
+                        <p class="text-center">No hay artículos disponibles por el momento.</p>
+                    )}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <div class="container">
+            <p>Ps. Jimmi Jason Ames Arenas | R.U.C. 10459004420</p>
+            <p class="copyright">&copy; 2026 Contextual. Psicoterapia y Formación. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/51994656656" class="floating-whatsapp" target="_blank" aria-label="Chat en WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+</OldSystemLayout>
 
 <style>
-	.blog-hero {
-		background: var(--color-dark);
-		color: white;
-		padding: 6rem 0;
-		text-align: center;
-	}
-	.blog-hero h1 {
-		color: white;
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-	.blog-hero p {
-		font-size: 1.2rem;
-		opacity: 0.8;
-	}
-	.posts-list {
-		padding: 4rem 0;
-	}
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 2rem;
-	}
-	.blog-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-	}
+    .section {
+        padding: 60px 0;
+    }
+    .text-center {
+        text-align: center;
+    }
 </style>
