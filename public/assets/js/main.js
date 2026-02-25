@@ -3,28 +3,42 @@
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
-if (mobileMenuBtn) {
+if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        if (navLinks.style.display === 'flex') {
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100%';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.backgroundColor = 'white';
-            navLinks.style.padding = '1rem';
-            navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+        navLinks.classList.toggle('active');
+
+        // Change icon between menu and x if available
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon && icon.dataset.lucide === 'menu') {
+            if (navLinks.classList.contains('active')) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
         }
     });
 }
 
-// Smooth scrolling for anchor links (Mobile menu close only)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        // If mobile menu is open, close it
-        if (window.innerWidth <= 768 && navLinks) {
-            navLinks.style.display = 'none';
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', 'menu');
+                if (window.lucide) window.lucide.createIcons();
+            }
         }
     });
+});
+
+// Fix for Lucide icons not loading correctly sometimes
+window.addEventListener('load', () => {
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 });
