@@ -129,8 +129,14 @@ img {
 
 /* Utilities */
 section {
-    scroll-margin-top: 90px;
-    /* Offset for sticky header */
+    scroll-margin-top: 110px;
+    /* Offset for fixed header */
+}
+
+@media (max-width: 768px) {
+    section {
+        scroll-margin-top: 85px;
+    }
 }
 
 .container {
@@ -230,6 +236,7 @@ section {
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     padding: 0.8rem 0;
 }
+
 /* Offset for fixed header */
 body {
     padding-top: 110px;
@@ -497,7 +504,6 @@ body {
 }
 
 #sobre-mi {
-    scroll-margin-top: 90px;
     padding-top: 40px;
     /* Compacted */
     padding-bottom: 20px;
@@ -754,17 +760,12 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    /* Mobile nav closed by default */
+
+    /* Mobile nav closed by default (desktop links hidden) */
     .nav-links {
         display: none;
     }
 
-    /* Keep header sticky in mobile */
-    #main-header {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }	
     .nav-links.active {
         display: flex;
         flex-direction: column;

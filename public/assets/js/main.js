@@ -8,8 +8,9 @@ if (mobileMenuBtn && navLinks) {
         navLinks.classList.toggle('active');
 
         // Change icon between menu and x if available
-        const icon = mobileMenuBtn.querySelector('i');
-        if (icon && icon.dataset.lucide === 'menu') {
+        const icon = mobileMenuBtn.querySelector('[data-lucide]');
+        if (icon) {
+            const currentIcon = icon.getAttribute('data-lucide');
             if (navLinks.classList.contains('active')) {
                 icon.setAttribute('data-lucide', 'x');
             } else {
@@ -27,7 +28,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         if (navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
+            const icon = mobileMenuBtn.querySelector('[data-lucide]');
             if (icon) {
                 icon.setAttribute('data-lucide', 'menu');
                 if (window.lucide) window.lucide.createIcons();
