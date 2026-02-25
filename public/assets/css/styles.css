@@ -741,6 +741,17 @@ section {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    /* Mobile nav closed by default */
+    .nav-links {
+        display: none;
+    }
+
+    /* Keep header sticky in mobile */
+    #main-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
     .nav-links.active {
         display: flex;
         flex-direction: column;
