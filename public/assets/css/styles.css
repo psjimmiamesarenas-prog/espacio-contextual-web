@@ -889,3 +889,95 @@ body {
         padding: 1rem;
     }
 }
+
+/* ==========================================================================
+   Individual Blog Post (Slug) Styles 
+   ========================================================================== */
+
+/* Container for the single post view */
+.article-page-section {
+    padding-top: 1.5rem;
+    /* Reduced to bring content higher under fixed header */
+    padding-bottom: 4rem;
+}
+
+.blog-post-content {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Post Hero Image */
+.post-hero-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    color: #8F99C9;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.blog-date-slug {
+    color: #2DA9AF;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-family: var(--font-heading);
+}
+
+/* Post Content Typography */
+.post-body-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+}
+
+.post-body-content p {
+    margin-bottom: 1.2rem;
+}
+
+.post-body-content h2,
+.post-body-content h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+    text-transform: none;
+    /* Articles use natural case for readability */
+    letter-spacing: normal;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .article-page-section {
+        padding-top: 1rem;
+    }
+
+    .post-hero-image {
+        max-height: 260px;
+        /* More compact for mobile */
+        margin-bottom: 1.5rem;
+    }
+
+    .post-body-content h2,
+    .post-body-content h3 {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .post-title {
+        font-size: 2rem;
+    }
+}
