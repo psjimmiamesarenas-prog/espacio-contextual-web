@@ -4,7 +4,7 @@ description: ¿Sientes que cuanto más piensas en un problema, peor te sientes?
   Descubre por qué la rumiación parece una solución, pero termina atrapándote en
   un ciclo de malestar, y qué puedes hacer para salir de él.
 pubDate: 2026-02-25T10:58:00.000-05:00
-heroImage: /images/blog/chatgpt-image-25-feb-2026-15_26_36.png
+heroImage: /images/blog/chatgpt-image-25-feb-2026-01_17_02.png
 ---
 *por Jimmi Ames*
 
