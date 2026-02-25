@@ -32,6 +32,10 @@
     --radius-lg: 24px;
     --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+
+    /* Offsets for Fixed Header */
+    --header-offset: 110px;
+    --contact-offset: 80px;
 }
 
 #blog {
@@ -129,13 +133,17 @@ img {
 
 /* Utilities */
 section {
-    scroll-margin-top: 110px;
-    /* Offset for fixed header */
+    scroll-margin-top: var(--header-offset);
+}
+
+#contacto {
+    scroll-margin-top: var(--contact-offset) !important;
 }
 
 @media (max-width: 768px) {
-    section {
-        scroll-margin-top: 85px;
+    :root {
+        --header-offset: 85px;
+        --contact-offset: 68px;
     }
 }
 
@@ -239,12 +247,12 @@ section {
 
 /* Offset for fixed header */
 body {
-    padding-top: 110px;
+    padding-top: var(--header-offset);
 }
 
 @media (max-width: 768px) {
     body {
-        padding-top: 85px;
+        padding-top: var(--header-offset);
     }
 }
 
