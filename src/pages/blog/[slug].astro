@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout 
+	title={post.data.title} 
+	description={post.data.description} 
+	image={post.data.heroImage}
+>
+	<Header />
+	
+	<article class="post-detail">
+		<header class="post-header">
+			<div class="container">
+				<div class="meta">
+					<span>{post.data.pubDate.toLocaleDateString('es-ES')}</span>
+				</div>
+				<h1>{post.data.title}</h1>
+				<p class="description">{post.data.description}</p>
+			</div>
+		</header>
+
+		<div class="hero-image">
+			<img src={post.data.heroImage} alt={post.data.title} />
+		</div>
+
+		<div class="container">
+			<div class="post-content">
+				<Content />
+			</div>
+		</div>
+	</article>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.post-detail {
+		padding-bottom: 4rem;
+	}
+	.post-header {
+		padding: 4rem 0 2rem;
+		text-align: center;
+	}
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+	.meta {
+		color: var(--color-primary);
+		font-weight: 600;
+		margin-bottom: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 0.8rem;
+	}
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+	.description {
+		font-size: 1.25rem;
+		color: #666;
+		margin-bottom: 2rem;
+	}
+	.hero-image {
+		max-width: 1000px;
+		margin: 0 auto 4rem;
+		border-radius: 20px;
+		overflow: hidden;
+		aspect-ratio: 16 / 9;
+		box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+	}
+	.hero-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.post-content {
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+	.post-content :global(p) {
+		margin-bottom: 1.5rem;
+	}
+	.post-content :global(h2) {
+		margin: 3rem 0 1.5rem;
+		font-size: 2rem;
+	}
+	.post-content :global(img) {
+		border-radius: 12px;
+		margin: 2rem 0;
+	}
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2rem;
+		}
+		.hero-image {
+			border-radius: 0;
+		}
+	}
+</style>

@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PostPreview from '../components/PostPreview.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const lastPosts = posts
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<BaseLayout title="Inicio">
+	<Header />
+	
+	<main>
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-content">
+				<h1>Transforma tu vida desde la <span>psicología contextual</span></h1>
+				<p>Acompañamiento especializado basado en evidencia para ayudarte a construir una vida con sentido.</p>
+				<div class="actions">
+					<a href="/blog" class="btn btn-primary">Leer el Blog</a>
+					<a href="#contacto" class="btn btn-outline">Contacto</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features Section -->
+		<section class="features">
+			<div class="container">
+				<h2>Nuestra Propuesta</h2>
+				<div class="grid">
+					<div class="feature-item">
+						<div class="icon">ACT</div>
+						<h3>Terapia de Aceptación</h3>
+						<p>Fomentamos la flexibilidad psicológica ante el sufrimiento humano.</p>
+					</div>
+					<div class="feature-item">
+						<div class="icon">MF</div>
+						<h3>Mindfulness</h3>
+						<p>Atención plena para reconectar con el momento presente.</p>
+					</div>
+					<div class="feature-item">
+						<div class="icon">EF</div>
+						<h3>Basado en Evidencia</h3>
+						<p>Tratamientos validados por la comunidad científica internacional.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Blog Preview Section -->
+		<section class="latest-blog">
+			<div class="container">
+				<div class="section-header">
+					<h2>Últimos Artículos</h2>
+					<a href="/blog">Ver todos</a>
+				</div>
+				<div class="blog-grid">
+					{lastPosts.map((post) => (
+						<PostPreview post={post} />
+					))}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</BaseLayout>
+
+<style>
+	.hero {
+		background: linear-gradient(135deg, #f0f4f8 0%, #e1e9f1 100%);
+		padding: 8rem 2rem;
+		text-align: center;
+	}
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	h1 {
+		font-size: 3.5rem;
+		margin-bottom: 1.5rem;
+	}
+	h1 span {
+		color: var(--color-primary);
+	}
+	.hero p {
+		font-size: 1.25rem;
+		margin-bottom: 2.5rem;
+		color: #555;
+	}
+	.actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+	.btn {
+		padding: 0.8rem 2rem;
+		border-radius: 50px;
+		font-weight: 600;
+		transition: all 0.3s;
+	}
+	.btn-primary {
+		background: var(--color-primary);
+		color: white;
+	}
+	.btn-primary:hover {
+		box-shadow: 0 10px 20px rgba(45, 169, 175, 0.3);
+		transform: translateY(-2px);
+	}
+	.btn-outline {
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+	}
+	.btn-outline:hover {
+		background: var(--color-primary);
+		color: white;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.features {
+		padding: 6rem 0;
+		background: white;
+	}
+	.features h2 {
+		text-align: center;
+		margin-bottom: 4rem;
+		font-size: 2.5rem;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 3rem;
+	}
+	.feature-item {
+		text-align: center;
+		padding: 2rem;
+		border-radius: 20px;
+		background: #fdfdfd;
+		border: 1px solid #eee;
+	}
+	.icon {
+		width: 60px;
+		height: 60px;
+		background: var(--color-secondary);
+		color: white;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 1.5rem;
+		font-weight: 700;
+	}
+
+	.latest-blog {
+		padding: 6rem 0;
+	}
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 3rem;
+	}
+	.section-header h2 {
+		font-size: 2.5rem;
+	}
+	.section-header a {
+		color: var(--color-primary);
+		font-weight: 600;
+		border-bottom: 2px solid transparent;
+		transition: border 0.3s;
+	}
+	.section-header a:hover {
+		border-bottom-color: var(--color-primary);
+	}
+	.blog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	@media (max-width: 768px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+	}
+</style>
