@@ -910,7 +910,7 @@ body {
 /* Post Hero Image */
 .post-hero-image {
     width: 100%;
-    max-height: 420px;
+    max-height: 340px;
     object-fit: cover;
     border-radius: 16px;
     margin-bottom: 2rem;
@@ -991,7 +991,7 @@ body {
     }
 
     .post-hero-image {
-        max-height: 260px;
+        max-height: 200px;
         /* More compact for mobile */
         margin-bottom: 1.5rem;
     }
