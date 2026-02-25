@@ -5,9 +5,6 @@ description: Pensar sin parar no siempre ayuda. En este artículo exploramos qu�
 pubDate: 2026-02-25T01:13:00.000-05:00
 heroImage: /images/blog/chatgpt-image-25-feb-2026-01_17_02.png
 ---
-
-
-
 *por Jimmi Ames*
 
 ¿Te ha pasado que después de un problema terminas ocupando tu mente con pensamientos repetitivos? Repites la conversación, lo que debiste decir, te juzgas o buscas una explicación… y mientras más piensas, peor te sientes.
@@ -82,5 +79,7 @@ A partir de ahí, puedes empezar a practicar algunas habilidades:
 2. **Conecta con el momento presente.** Esto implica dirigir tu atención deliberadamente al aquí y ahora: a la sensación del aire mientras respiras, a los sonidos que te rodean o a las señales de tu cuerpo. Al hacerlo, puedes notar que las emociones cambian con el tiempo; no son permanentes. Esta habilidad se entrena a través de prácticas como la atención plena.
 3. **Desbarata el poder que ejercen los pensamientos.** Muchas veces necesitamos aprender a desmontar la seriedad con la que tomamos lo que pensamos. Puedes ponerle un nombre a tu mente, convertir el pensamiento en metáfora (“mi mente es como…”), cantarlo, decirlo con voz de personaje o incluso repetirlo hasta que pierda intensidad. Estas prácticas no buscan burlarse de ti, sino que el pensamiento deje de gobernar tu conducta.
 4. **Elige cómo quieres actuar a partir de hoy.** El presente es el único espacio donde puedes moverte. Aunque los pensamientos estén ahí, puedes dar pequeños pasos en dirección a lo que es importante para ti: retomar una actividad valiosa, llamar a alguien significativo o cumplir una responsabilidad pendiente. No necesitas que el malestar desaparezca para actuar; puedes avanzar con él.
+
+### **Conclusión**
 
 Superar la rumiación no solo se logra comprendiendo lo que ocurre. Primero requiere una práctica constante y una disposición auténtica a abrir espacio a la vulnerabilidad mientras construyes una vida valiosa. Esta forma de relacionarte con tu propia experiencia puede fortalecerse en un proceso terapéutico. Mi compromiso trasciende la reducción del malestar; se orienta a ayudarte a construir una relación más flexible con él para que puedas vivir de una manera más plena y significativa.
