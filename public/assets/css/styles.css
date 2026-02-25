@@ -309,10 +309,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
+    /* Reduced from xl */
     text-align: center;
-    margin-bottom: var(--spacing-xl);
-    /* Generous gap before services */
+    margin-bottom: var(--spacing-lg);
+    /* Reduced from xl - generous gap before services */
     /* Soft gradient background */
     background: linear-gradient(180deg, rgba(143, 153, 201, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -341,10 +342,10 @@ body {
 
 /* Services Grid */
 #servicios {
-    padding-top: 2rem;
-    /* Reduced from var(--spacing-lg) */
-    padding-bottom: 3rem;
-    /* Balanced gap */
+    padding-top: 0.75rem;
+    /* Reduced to bring content up */
+    padding-bottom: 2rem;
+    /* Compact vertical balance */
 }
 
 .services-grid {
