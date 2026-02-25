@@ -652,8 +652,10 @@ body {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    /* Reduced ~15% from 64px */
+    height: 54px;
+    /* Reduced ~15% from 64px */
     background-color: #25D366;
     color: white;
     border-radius: 50%;
@@ -669,9 +671,12 @@ body {
     transform: scale(1.1) rotate(10deg);
 }
 
-.floating-whatsapp i {
-    width: 36px;
-    height: 36px;
+.floating-whatsapp i,
+.floating-whatsapp svg,
+.floating-whatsapp [data-lucide] {
+    width: 30px;
+    /* Proportional reduction */
+    height: 30px;
 }
 
 .blog-grid {
@@ -852,6 +857,21 @@ body {
 
     .map-container iframe {
         height: 250px;
+    }
+
+    .floating-whatsapp {
+        width: 48px;
+        /* Reduced ~25% from 64px (approx 20% smaller than desktop) */
+        height: 48px;
+        bottom: 2rem;
+        right: 2rem;
+    }
+
+    .floating-whatsapp i,
+    .floating-whatsapp svg,
+    .floating-whatsapp [data-lucide] {
+        width: 26px;
+        height: 26px;
     }
 }
 
