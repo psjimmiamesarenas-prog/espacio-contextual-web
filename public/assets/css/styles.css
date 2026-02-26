@@ -910,12 +910,14 @@ body {
 /* Post Hero Image */
 .post-hero-image {
     width: 100%;
-    max-height: 480px;
-    object-fit: contain;
-    border-radius: 16px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    height: auto;
+    max-width: 720px;
+    /* hace la imagen más pequeña en desktop */
     display: block;
+    margin: 0 auto 1.25rem;
+    /* centrada + espacio pequeño debajo */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .post-header {
@@ -991,9 +993,7 @@ body {
     }
 
     .post-hero-image {
-        max-height: none;
-        /* More compact for mobile */
-        margin-bottom: 1.5rem;
+        max-width: 100%;
     }
 
     .post-body-content h2 {
@@ -1006,11 +1006,3 @@ body {
         margin-top: 1.75rem;
     }
 }
-
-@media (min-width: 1024px) {
-    .post-hero-image {
-        max-height: 450px;
-    }
-}
-
-
