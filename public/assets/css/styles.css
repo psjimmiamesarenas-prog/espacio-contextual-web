@@ -911,13 +911,14 @@ body {
 .post-hero-image {
     width: 100%;
     height: auto;
-    max-width: 720px;
-    /* hace la imagen más pequeña en desktop */
-    display: block;
-    margin: 0 auto 1.25rem;
-    /* centrada + espacio pequeño debajo */
+    max-height: 420px;
+    /* más compacta */
+    object-fit: cover;
+    /* elimina barras laterales */
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    display: block;
 }
 
 .post-header {
@@ -992,9 +993,6 @@ body {
         padding-top: 1rem;
     }
 
-    .post-hero-image {
-        max-width: 100%;
-    }
 
     .post-body-content h2 {
         font-size: 1.4rem;
