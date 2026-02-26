@@ -767,7 +767,7 @@ body {
 }
 
 /* Markdown Content Styling */
-.blog-post-content h1 {
+.post-body-content h1 {
     color: var(--primary-color);
     font-size: 3rem;
 }
