@@ -910,11 +910,11 @@ body {
 /* Post Hero Image */
 .post-hero-image {
     width: 100%;
-    height: auto;
+    max-height: 480px;
     object-fit: contain;
     border-radius: 16px;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     display: block;
 }
 
@@ -1006,3 +1006,11 @@ body {
         margin-top: 1.75rem;
     }
 }
+
+@media (min-width: 1024px) {
+    .post-hero-image {
+        max-height: 450px;
+    }
+}
+
+
