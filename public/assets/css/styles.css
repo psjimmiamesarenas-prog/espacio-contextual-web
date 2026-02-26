@@ -924,7 +924,7 @@ body {
 
 .post-title {
     color: #8F99C9;
-    font-size: clamp(2.1rem, 4vw, 3.2rem);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
     margin-bottom: 1.2rem;
     line-height: 1.05;
 }
