@@ -924,9 +924,9 @@ body {
 
 .post-title {
     color: #8F99C9;
-    font-size: 2.1rem;
+    font-size: clamp(2.1rem, 4vw, 3.2rem);
     margin-bottom: 1.2rem;
-    line-height: 1.15;
+    line-height: 1.05;
 }
 
 .blog-date-slug {
@@ -1004,9 +1004,5 @@ body {
     .post-body-content h3 {
         font-size: 1.2rem;
         margin-top: 1.75rem;
-    }
-
-    .post-title {
-        font-size: 1.7rem;
     }
 }
